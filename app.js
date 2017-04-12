@@ -3,8 +3,7 @@ var express = require('express'),
     IP  = process.env.IP,
     app = express();
 
-    app.set('views', __dirname + '/src/views');
-    app.use(express.static(__dirname + "src"));
+    app.use(express.static("src"));
     app.set("view engine", "ejs");
 
     app.get("/", function(req,res) {
