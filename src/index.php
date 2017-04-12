@@ -13,13 +13,24 @@
             <div class="row">
                 <h1>Reverse</h1>
             </div>
-            <select class="select" name="">
-                <option value="">Reverse</option>
-                <option value="">FizzBuzz</option>
-                <option value="">PigLatinfy</option>
-            </select>
-            <input type="text" name="textbox" class="textbox" placeholder="enter text here">
-            <button><i class="fa fa-thumbs-up"></i> Submit</button>
+            <div class="container">
+                <form action="" class="form-inline">
+                    <div class="form-group">
+                        <select class="select form-control" name="">
+                            <option value="">Reverse</option>
+                            <option value="">Fizz Buzz</option>
+                            <option value="">Pig Latinfy</option>
+                            <option value="">Count Vowels</option>
+                            <option value="">Palindrome</option>
+                            <option value="">Word Count</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="textbox" class="textbox" placeholder="enter text here">
+                    </div>
+                    <button class="btn btn-primary"><i class="fa fa-thumbs-up"></i> Submit</button>
+                </form>
+            </div>
         </div>
     </div>
     <script src="assets/js/main-min.js"></script>
