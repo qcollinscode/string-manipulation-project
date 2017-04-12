@@ -1,6 +1,6 @@
 const string = "walking to the moon";
 
-function palindrome(string) {
+function wordCount(string) {
     console.log(string.split(' ').length);
 };
 
