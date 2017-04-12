@@ -24,7 +24,7 @@ var text = (function() {
           };
 
           const resetTxtColor = () => {
-             displayText.style.color = "black";
+             displayText.style.color = "#fff";
           };
 
           const reverseString = function() {
@@ -174,3 +174,10 @@ var text = (function() {
                 }
             });
 }());
+
+var txtData;
+$.get("/../../docs/test.txt", function(data) {
+    return txtData = data;
+});
+
+console.log(txtData);

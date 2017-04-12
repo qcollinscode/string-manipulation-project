@@ -34,5 +34,13 @@
         </div>
     </div>
     <script src="assets/js/main-min.js"></script>
+    <script>
+        (function() {
+            var form = document.querySelector('form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+            });
+        }());
+    </script>
 </body>
 </html>
