@@ -19,44 +19,49 @@ var text = (function() {
               return n == Number(n);
           };
 
+          const resetTxtBox = () => {
+            $(textbox).val('');
+          };
+
+          const resetTxtColor = () => {
+             displayText.style.color = "black";
+          };
+
           var reverseString = function() {
-              displayText.style.color = "black";
+              resetTxtColor();
               const newString = textbox.value.split('').reverse().join('');
               displayText.innerHTML = newString;
-              $(textbox).val('');
+              resetTxtBox();
           };
 
           var pigLatinfy = function() {
-              const txt = textbox.value.split(" ");
-              let arr = [];
-              function puncExist(punc) {
-                  return puncExist = punc === "?" || punc === "," || punc === "." || punc === "!" || punc === "'" || punc === "\"" || punc === ";";
-              }
-              for(var i = 0; i < txt.length; i++) {
-                  let txtStr = txt[i];
-                  const textArr = txtStr.split(' ');
-                  let punc = textArr.slice(-1)[0],
-                      punct = puncExist(punc);
-                  if(!punct) {
-                      console.log(textArr)
-                      textArr.splice(-1, 1)[0];
-                  }
+              resetTxtColor();
+              const str = textbox.value,
+                    newStr = str.split(" "),
+                    arr = [];
 
-                  textArr.push(textArr.shift())
-                  textArr.push("ay");
-                  if(punct) {
-                      textArr.push(punc);
+              for(let i = 0; i < newStr.length; i++) {
+                  let arrStr = newStr[i].split('');
+                  let lastChar = arrStr.slice(-1)[0];
+                  const lastCharCheck = lastChar === "?" || lastChar === "," || lastChar === "." || lastChar === "!" || lastChar === "'" || lastChar === "\"" || lastChar === ";";
+                  if(lastCharCheck) {
+                      arrStr.splice(-1, 1)[0];
                   }
-                  let newText = textArr.join('');
-                  arr.push(newText);
+                  arrStr.push(arrStr.shift())
+                  arrStr.push("ay");
+                  if(lastCharCheck) {
+                      arrStr.push(lastChar);
+                  }
+                  arr.push(arrStr.join(''));
               }
-              const newText = arr.join(' ');
+
+              const newText = String(arr.join(' '));
               displayText.innerHTML = newText.charAt(0).toUpperCase() + newText.substr(1).toLowerCase();
-              $(textbox).val('');
+              resetTxtBox();
           };
 
           var fizzBuzz = function() {
-              displayText.style.color = "black";
+              resetTxtColor();
               const numbers = textbox.value.split(' '),
                     init = Number(numbers[0]),
                     len  = Number(numbers[2]),
@@ -74,7 +79,7 @@ var text = (function() {
                           arr.push(i);
                       };
                   }
-                  $(textbox).val('');
+                  resetTxtBox();
                   displayText.innerHTML = arr.toString().replace(/,/g , ", ");
               } else {
                   error();
@@ -86,9 +91,11 @@ var text = (function() {
           };
 
             select.onchange = function() {
+                resetTxtColor();
                 var index = this.selectedIndex;
                 var inputText = this.children[index].innerHTML.trim();
                 displayText.innerHTML = inputText;
+                resetTxtBox();
             };
 
             buttonClick(function() {
