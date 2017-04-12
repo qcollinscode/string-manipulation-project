@@ -4,7 +4,7 @@ var express = require('express'),
     app = express();
 
     app.set('views', __dirname + '/src/views');
-    app.use(express.static("src"));
+    app.use(express.static(__dirname + "src"));
     app.set("view engine", "ejs");
 
     app.get("/", function(req,res) {
