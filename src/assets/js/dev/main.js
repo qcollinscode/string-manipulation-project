@@ -150,8 +150,8 @@ var text = (function() {
                 resetTxtBox();
             };
 
-            buttonClick(() => {
-                if(textbox.value.length > 1) {
+            buttonClick(function() {
+                if(textbox.value.length >= 1) {
                     var index = select.selectedIndex,
                         inputText = select.children[index].innerHTML.trim();
                     switch(inputText) {
@@ -169,15 +169,6 @@ var text = (function() {
                         break;
                         default: text.error();
                     };
-                } else {
-                    error();
                 }
             });
 }());
-
-var txtData;
-$.get("/../../docs/test.txt", function(data) {
-    return txtData = data;
-});
-
-console.log(txtData);
